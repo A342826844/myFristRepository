@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<h1 id="btn">hhhhhhhhhhhhh</h1>
+	</div>
+	<script>
+		let arr = [
+			{
+				id: 'a',
+				val: 1
+			},
+			{
+				id: 'b',
+				val: 1
+			},
+			{
+				id: 'b',
+				val: 1
+			},
+			{
+				id: 'a',
+				val: 1
+			},
+			{
+				id: 'c',
+				val: 1
+			},
+			{
+				id: 'a',
+				val: 1
+			},
+			{
+				id: 'b',
+				val: 1
+			},
+			{
+				id: 'a',
+				val: 1
+			},
+			{
+				id: 'd',
+				val: 1
+			},
+		]
+		console.log(arr,'arr')
+		let res = [];
+		let btn = document.getElementById('btn');
+		// console.log(item)
+		btn.addEventListener('click', function() {
+			arr.map(item => {
+				if(res.length ===0){
+					res.push(item);
+					return;
+				}
+				let flag = false;
+				res.map(subitem => {
+					if(subitem.id === item.id) {
+						subitem.val = subitem.val + item.val;
+						console.log(item.val)
+						flag = true;
+					}
+				})
+				if(!flag) {
+					res.push(item);
+				}
+			})
+			console.log(arr, res)
+		})
+		
+	</script>
+</body>
+</html>
