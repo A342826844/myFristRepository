@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#container {
+			width: 95%;
+			position: relative;
+			margin: auto;
+		}
+		#container div {
+			width: 200px;
+			padding: 10px;
+			border: 1px solid;
+			border-radius: 5px;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#container div img {
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div><img src="images/imgs (1).jpg" alt=""></div>
+		<div><img src="images/imgs (2).jpg" alt=""></div>
+		<div><img src="images/imgs (3).jpg" alt=""></div>
+		<div><img src="images/imgs (4).jpg" alt=""></div>
+		<div><img src="images/imgs (5).jpg" alt=""></div>
+		<div><img src="images/imgs (6).jpg" alt=""></div>
+		<div><img src="images/imgs (7).jpg" alt=""></div>
+		<div><img src="images/imgs (8).jpg" alt=""></div>
+		<div><img src="images/imgs (9).jpg" alt=""></div>
+		<div><img src="images/imgs (10).jpg" alt=""></div>
+		<div><img src="images/imgs (11).jpg" alt=""></div>
+		<div><img src="images/imgs (12).jpg" alt=""></div>
+		<div><img src="images/imgs (13).jpg" alt=""></div>
+		<div><img src="images/imgs (14).jpg" alt=""></div>
+		<div><img src="images/imgs (15).jpg" alt=""></div>
+		<div><img src="images/imgs (16).jpg" alt=""></div>
+		<div><img src="images/imgs (17).jpg" alt=""></div>
+		<div><img src="images/imgs (18).jpg" alt=""></div>
+		<div><img src="images/imgs (19).jpg" alt=""></div>
+		<div><img src="images/imgs (20).jpg" alt=""></div>
+		<div><img src="images/imgs (21).jpg" alt=""></div>
+		<div><img src="images/imgs (22).jpg" alt=""></div>
+		<div><img src="images/imgs (23).jpg" alt=""></div>
+		<div><img src="images/imgs (24).jpg" alt=""></div>
+		<div><img src="images/imgs (25).jpg" alt=""></div>
+		<div><img src="images/imgs (26).jpg" alt=""></div>
+		<div><img src="images/imgs (27).jpg" alt=""></div>
+		<div><img src="images/imgs (28).jpg" alt=""></div>
+		<div><img src="images/imgs (29).jpg" alt=""></div>
+		<div><img src="images/imgs (30).jpg" alt=""></div>
+	</div>
+
+	<script src="js/tools.js"></script>
+	<script>
+		// 页面内容加载完毕，执行onload事件函数
+		// 包括图像资源加载完毕
+		window.onload = function() {
+			var
+				cols = 4, // 列数
+				divs = $("div", $("#container")), // 待定位的元素
+				spacing = 10, // 间距
+				colWidth = divs[0].offsetWidth, // 列宽
+				height = [0, 0, 0, 0]; // 各列高度
+
+			for (var i = 0; i < divs.length; i++) {
+				// 计算当前元素所在列索引
+				var colIndex = i % 4;
+				// 定位
+				divs[i].style.top = height[colIndex] + 10 + "px";
+				divs[i].style.left = (colIndex + 1) * spacing + colIndex * colWidth + "px";
+
+				// 将当前定位元素的高度累加到列高度中
+				height[colIndex] += divs[i].offsetHeight + 10;
+			}
+
+			// /* 第一行定位 */
+			// for (var i = 0; i < 4; i++) {
+			// 	var colIndex = i % 4;
+			// 	divs[i].style.top = height[colIndex] + 10 + "px";
+			// 	divs[i].style.left = (colIndex + 1) * spacing + colIndex * colWidth + "px";
+			// 	// 将当前定位好元素的高度累加到列的总高度中
+			// 	height[colIndex] += divs[i].offsetHeight + 10;
+			// }
+			// console.log(height)
+
+			// for (; i < divs.length; i++) {
+			// 	// 计算当前元素所在列索引
+			// 	var colIndex = i % 4;
+			// 	// 定位
+			// 	divs[i].style.top = height[colIndex] + 10 + "px";
+			// 	divs[i].style.left = (colIndex + 1) * spacing + colIndex * colWidth + "px";
+
+			// 	// 将当前定位元素的高度累加到列高度中
+			// 	height[colIndex] += divs[i].offsetHeight + 10;
+			// }
+
+			// /* 第二行定位 */
+			// for (; i < 8; i++) {
+			// 	// 计算当前元素所在列索引
+			// 	var colIndex = i % 4;
+			// 	// 定位
+			// 	divs[i].style.top = height[colIndex] + 10 + "px";
+			// 	divs[i].style.left = (colIndex + 1) * spacing + colIndex * colWidth + "px";
+
+			// 	// 将当前定位元素的高度累加到列高度中
+			// 	height[colIndex] += divs[i].offsetHeight + 10;
+			// }
+
+			// /* 第三行定位 */
+			// for (; i < 12; i++) {
+			// 	var colIndex = i % 4;
+			// 	divs[i].style.top = height[colIndex] + 10 + "px";
+			// 	divs[i].style.left =  (colIndex + 1) * spacing + colIndex * colWidth + "px";
+			// 	// 将当前定位元素的高度累加到列高度中
+			// 	height[colIndex] += divs[i].offsetHeight + 10;
+			// }
+		}
+	</script>
+</body>
+</html>

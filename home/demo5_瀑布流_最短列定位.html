@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#container {
+			width: 95%;
+			position: relative;
+			margin: auto;
+		}
+		#container div {
+			width: 200px;
+			padding: 10px;
+			border: 1px solid;
+			border-radius: 5px;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#container div img {
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div><img src="images/imgs (1).jpg" alt=""></div>
+		<div><img src="images/imgs (2).jpg" alt=""></div>
+		<div><img src="images/imgs (3).jpg" alt=""></div>
+		<div><img src="images/imgs (4).jpg" alt=""></div>
+		<div><img src="images/imgs (5).jpg" alt=""></div>
+		<div><img src="images/imgs (6).jpg" alt=""></div>
+		<div><img src="images/imgs (7).jpg" alt=""></div>
+		<div><img src="images/imgs (8).jpg" alt=""></div>
+		<div><img src="images/imgs (9).jpg" alt=""></div>
+		<div><img src="images/imgs (10).jpg" alt=""></div>
+		<div><img src="images/imgs (11).jpg" alt=""></div>
+		<div><img src="images/imgs (12).jpg" alt=""></div>
+		<div><img src="images/imgs (13).jpg" alt=""></div>
+		<div><img src="images/imgs (14).jpg" alt=""></div>
+		<div><img src="images/imgs (15).jpg" alt=""></div>
+		<div><img src="images/imgs (16).jpg" alt=""></div>
+		<div><img src="images/imgs (17).jpg" alt=""></div>
+		<div><img src="images/imgs (18).jpg" alt=""></div>
+		<div><img src="images/imgs (19).jpg" alt=""></div>
+		<div><img src="images/imgs (20).jpg" alt=""></div>
+		<div><img src="images/imgs (21).jpg" alt=""></div>
+		<div><img src="images/imgs (22).jpg" alt=""></div>
+		<div><img src="images/imgs (23).jpg" alt=""></div>
+		<div><img src="images/imgs (24).jpg" alt=""></div>
+		<div><img src="images/imgs (25).jpg" alt=""></div>
+		<div><img src="images/imgs (26).jpg" alt=""></div>
+		<div><img src="images/imgs (27).jpg" alt=""></div>
+		<div><img src="images/imgs (28).jpg" alt=""></div>
+		<div><img src="images/imgs (29).jpg" alt=""></div>
+		<div><img src="images/imgs (30).jpg" alt=""></div>
+	</div>
+
+	<script src="js/tools.js"></script>
+	<script>
+		window.onload = function() {
+			var
+				spacing = 10,
+				divs = $("div", $("#container")),
+				len = divs.length,
+				colWidth = divs[0].offsetWidth,
+				cols = 4;
+				height = new Array(cols);
+			// 将数组中每个元素以0填充
+			height.fill(0);
+			// 循环，定位
+			for (var i = 0; i < len; i++) {
+				// 列索引
+				var colIndex = min(height);
+				// 定位
+				divs[i].style.top = height[colIndex] + 10 + "px";
+				divs[i].style.left = (colIndex + 1) * spacing + colIndex * colWidth + "px";
+				// 累加列高度
+				height[colIndex] += divs[i].offsetHeight + 10;
+			}
+
+			// 求数组元素最小值的下标
+			function min(array) {
+				return array.indexOf(Math.min(...array));
+			}
+		}
+	</script>
+</body>
+</html>

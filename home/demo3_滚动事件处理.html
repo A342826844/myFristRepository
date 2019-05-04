@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动</title>
+	<style type="text/css">
+		body {
+			height: 3000px;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.search {
+			height: 100px;
+			position: fixed;
+			left: 0;
+			right: 0;
+			background: #000;
+			display: none;
+		}
+
+		.top {
+			width: 80px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			border: 1px solid;
+			position: fixed;
+			right: 50px;
+			bottom: 50px;
+			cursor: pointer;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="search"></div>
+	<div class="top">回到顶部</div>
+	<script src="js/tools.js"></script>
+	<script>
+		window.onscroll = function() {
+			// 计算垂直滚动距离
+			var _top = document.documentElement.scrollTop || document.body.scrollTop;
+			// 判断滚动距离与1000的大小关系
+			if (_top >= 1000) {
+				$(".search")[0].style.display = "block";
+				$(".top")[0].style.display = "block";
+			} else {
+				$(".search")[0].style.display = "none";
+				$(".top")[0].style.display = "none";
+			}
+		}
+
+		$(".top")[0].onclick = function() {
+			var start = document.documentElement.scrollTop,
+				end = 0,
+				speed = 3000,
+				range = end - start,
+				startTime = +new Date(),
+				timer = setInterval(function() {
+					var elapsed = Math.min(+new Date() - startTime, speed);
+					var result = elapsed * range / speed + start;
+					document.documentElement.scrollTop = result;
+					if (elapsed === speed)
+						clearInterval(timer);
+				}, 1000/60);
+		}
+	</script>
+</body>
+</html>
